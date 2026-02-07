@@ -11,7 +11,7 @@ app = FastAPI(
 # Configure CORS - Allow frontend to access backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # In production, specify your frontend URL
+    allow_origins=["https://orange-water-0e25d2c00.1.azurestaticapps.net"],  # In production, specify your frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
