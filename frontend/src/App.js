@@ -10,7 +10,7 @@ function App() {
   const [selectedFact, setSelectedFact] = useState(null);
 
   // Backend API URL - Change this to your deployed backend URL
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+  const API_URL = process.env.REACT_APP_API_URL || 'https://factscheck-gcedbya8eufsdkcd.southindia-01.azurewebsites.net/';
 
   useEffect(() => {
     fetchFacts();
