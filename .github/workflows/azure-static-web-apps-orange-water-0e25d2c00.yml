@@ -32,6 +32,8 @@ jobs:
           app_location: "frontend"
           output_location: "build"
           app_build_command: "npm run build"
+          app_artifact_location: "frontend/build"
+          skip_app_build: true
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -44,3 +46,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ORANGE_WATER_0E25D2C00 }}
           action: "close"
+
