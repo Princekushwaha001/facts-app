@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
@@ -35,10 +36,21 @@ function App() {
     }
   };
 
-  // Filter facts based on search
-  const filteredFacts = facts.filter(fact =>
-    fact.fact.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // Filter facts based on search (by ID or fact text)
+  const filteredFacts = facts.filter(fact => {
+    const searchLower = searchTerm.toLowerCase().trim();
+
+    // Solution: Detect if search is numeric
+    const isNumericSearch = /^\d+$/.test(searchLower);
+
+    if (isNumericSearch) {
+    // Number typed → exact ID match only
+    return fact.id.toString() === searchLower;
+    } else {
+    // Text typed → search in fact content
+    return fact.fact.toLowerCase().includes(searchLower);
+    }
+  });
 
   return (
     <div className="App">
@@ -70,7 +82,7 @@ function App() {
               </svg>
               <input
                 type="text"
-                placeholder="Search facts..."
+                placeholder="Search by ID or fact..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"

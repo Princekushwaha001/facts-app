@@ -27,7 +27,6 @@ facts_data = [
     {"id": 6, "fact": "Bananas are berries, but strawberries aren't."},
     {"id": 7, "fact": "Octopuses have three hearts."},
     {"id": 8, "fact": "The Eiffel Tower can grow taller in summer."},
-    { "id": 1, "fact": "The sun is a star." },
 ]
 
 # Facts endpoint - Main requirement
